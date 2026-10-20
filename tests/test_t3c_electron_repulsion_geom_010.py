@@ -2,7 +2,14 @@ from pathlib import Path
 import numpy as np
 import math as mt
 
-from veloxchem import ThreeCenterElectronRepulsionGeom010Driver
+import pytest
+
+try:
+    from veloxchem import ThreeCenterElectronRepulsionGeom010Driver
+except ImportError:
+    pytest.skip('ThreeCenterElectronRepulsionGeom010Driver is not available',
+                allow_module_level=True)
+
 from veloxchem import MolecularBasis
 from veloxchem import Molecule
 from veloxchem import SubMatrix
